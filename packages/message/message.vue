@@ -42,7 +42,7 @@ duration：停留时长
 import hIcon from "../icon/index.vue";
 import { onMounted, ref, reactive } from "vue";
 export default {
-  name: "hMessage",
+  name: "HMessage",
   components: {
     hIcon,
   },

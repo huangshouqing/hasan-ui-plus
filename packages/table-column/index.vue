@@ -6,11 +6,11 @@
 
 <script>
 export default {
-  name: "H-Table-column",
+  name: "HTableColumn",
   props: {
     label: { type: String, required: true },
   },
-  inject: ["hTable"],
+  inject: ["HTable"],
   created() {
     this.$nextTick(() => {
       let dom = this.$el.parentNode;
@@ -22,10 +22,10 @@ export default {
 
       index = dom.getAttribute("data-index");
       if (index === "0") {
-        this.hTable.addLabel(this.label);
+        this.HTable.addLabel(this.label);
 
         this.$destroy = () => {
-          this.hTable.delLabel(this.label);
+          this.HTable.delLabel(this.label);
         };
       }
     });

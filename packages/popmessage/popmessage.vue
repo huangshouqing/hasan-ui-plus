@@ -5,7 +5,7 @@ cancel 默认传boolean值为false
  -->
 <template>
   <div class="popmessage">
-    <hPopover trigger="click"
+    <HPopover trigger="click"
       ref="popover">
       <template #content>
         <div class="title">
@@ -27,16 +27,16 @@ cancel 默认传boolean值为false
       </template>
       <!-- 默认插槽 -->
       <slot></slot>
-    </hPopover>
+    </HPopover>
   </div>
 </template>
 
 <script>
-import hPopover from "../popover/popover.vue";
-import HButton from "../buttons/index.vue";
+import HPopover from "../popover/popover.vue";
+import HButton from "../button/index.vue";
 export default {
-  name: "hPopmessage",
-  components: { hPopover, HButton },
+  name: "HPopmessage",
+  components: { HPopover, HButton },
   methods: {
     //点击确认
     handleConfirm() {

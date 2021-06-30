@@ -1,17 +1,17 @@
 {
   "name": "hasan-ui-plus",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lib": "vue-cli-service build --target lib --name hansan-vui --dest lib packages/index.js"
+    "lib": "vue-cli-service build --target lib --name hasan-ui-plus --dest lib packages/index.js"
   },
   "files": [
     "lib"
   ],
-  "main": "lib/hansan-vui.umd.js",
+  "main": "lib/hasan-ui-plus.umd.js",
   "dependencies": {
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
@@ -63,7 +63,7 @@
     "lib": "lib"
   },
   "keywords": [
-    "hansan-vui"
+    "hasan-ui-plus"
   ],
   "author": "huang",
   "license": "ISC"

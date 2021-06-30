@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: "hPopover",
+  name: "HPopover",
   props: {
     popClassName: {
       type: String,

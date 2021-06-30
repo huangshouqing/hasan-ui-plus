@@ -50,7 +50,7 @@ callback:手动关闭会调用该回调
 
 <script type="text/ecmascript-6">
 export default {
-  name: "hNotice",
+  name: "HNotice",
   props: {
     //类型
     type: {
@@ -147,7 +147,7 @@ export default {
 };
 </script>
 
-<style scoped lang='less' >
+<style scoped lang='scss' >
 .appear-enter-active {
   transition: all 0.2s ease;
 }

@@ -15,7 +15,7 @@
 import { getCurrentInstance } from "vue";
 
 export default {
-  name: "H-Button",
+  name: "HButton",
   props: {
     // 按钮类型
     type: {

@@ -9,6 +9,7 @@ import "material-design-icons/iconfont/material-icons.css";
 import "../static/fonts/iconfont.scss";
 
 export default {
+  name: "hIcon",
   props: {
     name: { type: String, default: "" },
     size: { type: [String, Number], default: 14 },

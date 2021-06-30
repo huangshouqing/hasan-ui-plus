@@ -26,7 +26,7 @@ import {
   ref,
 } from "vue";
 export default {
-  name: "H-input",
+  name: "HSearch",
   emits: ["search", "update:value", "focus", "blur", "keydown"],
   props: {
     value: {

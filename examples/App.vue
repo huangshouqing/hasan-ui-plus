@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import hButton from "../packages/buttons";
+import hButton from "../packages/button";
 import hIcon from "../packages/icon/index.vue";
 import hTable from "../packages/table";
 import hTableColumn from "../packages/table-column";

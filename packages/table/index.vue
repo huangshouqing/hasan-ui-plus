@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: "H-Table",
+  name: "HTable",
   props: {
     data: { type: Array, default: () => [] },
     align: { type: String, default: "left" },
@@ -31,7 +31,7 @@ export default {
   },
   provide() {
     return {
-      hTable: this,
+      HTable: this,
     };
   },
   data() {
