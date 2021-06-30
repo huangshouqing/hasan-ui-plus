@@ -1,0 +1,70 @@
+{
+  "name": "hasan-ui-plus",
+  "version": "0.0.1-alpha.1",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name hansan-vui --dest lib packages/index.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/hansan-vui.umd.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "core-js": "^3.6.5",
+    "dayjs": "^1.10.4",
+    "echarts": "^4.9.0",
+    "lodash": "^4.17.20",
+    "vue": "^3.0.0",
+    "material-design-icons": "^3.0.1",
+    "material-design-icons-iconfont": "^v6.1.0",
+    "reset-css": "^4.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "parserOptions": {
+      "parser": "babel-eslint"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "description": "hasan个人组件库",
+  "directories": {
+    "example": "examples",
+    "lib": "lib"
+  },
+  "keywords": [
+    "hansan-vui"
+  ],
+  "author": "huang",
+  "license": "ISC"
+}
