@@ -17,21 +17,22 @@ duration：停留时长
       appear-active-class="fade-enter-active"
       name="animate">
       <div class="message"
+        :theme='theme'
         :class="type"
         v-if="data.show"
         :type="type">
         <hIcon v-if="type==='success'"
           name='check'
-          size='14'></hIcon>
+          size='16'></hIcon>
         <hIcon v-if="type==='warning'"
           name='warning'
-          size='14'></hIcon>
+          size='16'></hIcon>
         <hIcon v-if="type==='error'"
           name='error'
-          size='14'></hIcon>
+          size='16'></hIcon>
         <hIcon v-if="type==='info'"
           name='info'
-          size='14'></hIcon>
+          size='16'></hIcon>
         <span class="text">{{message}}</span>
       </div>
     </transition>
@@ -47,6 +48,10 @@ export default {
     hIcon,
   },
   props: {
+    theme: {
+      type: String,
+      default: "plain", // colour
+    },
     //类型
     type: {
       type: String,
@@ -59,7 +64,6 @@ export default {
       type: String,
       default: "",
     },
-
     //停留时长
     duration: {
       type: Number,
@@ -135,62 +139,56 @@ export default {
 }
 
 .message {
-  &[type="warning"] {
-    background-color: #fdf6ec;
-    color: #e6a23c;
-  }
-
-  &[type="error"] {
-    background-color: #fef0f0;
-    color: #f56c6c;
-  }
-
-  &[type="success"] {
-    background-color: #f0f9eb;
-    color: #67c23a;
-  }
-
-  &[type="info"] {
-    background-color: #edf2fc;
-    color: #909399;
-  }
-
   position: fixed;
   top: 20px;
   text-align: center;
   left: 50%;
   transform: translateX(-50%);
   min-width: 100px;
-  padding: 5px 10px;
-  background: #edf2fc;
+  padding: 10px 10px;
+  &[theme="colour"] {
+    background: #edf2fc;
+    border: none;
+    &[type="primary"] {
+      background-color: #fdf6ec;
+      // color: #e6a23c;
+      color: $primary-color;
+    }
+
+    &[type="warning"] {
+      background-color: #fdf6ec;
+      // color: #e6a23c;
+      color: $warn-color;
+    }
+
+    &[type="error"] {
+      background-color: #fef0f0;
+      // color: #f56c6c;
+      color: $error-color;
+    }
+
+    &[type="success"] {
+      background-color: #f0f9eb;
+      // color: #67c23a;
+      color: $success-color;
+    }
+
+    &[type="info"] {
+      background-color: #edf2fc;
+      // color: #909399;
+      color: $disabled-color;
+    }
+  }
+  background: #fff;
   font-size: 14px;
-  border-radius: 4px;
+  font-weight: bold;
+  border-radius: 2px;
   z-index: 10000;
   display: flex;
-  justify-content: space-around;
+  border: 2px solid #000;
   align-items: center;
-
-  .iconfont {
-  }
-
-  .icon-chenggong {
-    color: #52c41a;
-    font-size: 16px;
-  }
-
-  .icon-jinggao {
-    color: #e6a23c;
-    font-size: 16px;
-  }
-
-  .icon-cuowu {
-    color: #fd6b6d;
-    font-size: 16px;
-  }
-
-  .icon-zhengchang {
-    color: #909399;
-    font-size: 16px;
+  .icon {
+    margin-right: 5px;
   }
 }
 </style>

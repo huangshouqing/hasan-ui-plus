@@ -4,13 +4,13 @@
 属性：
 type：类型
 options{
-  title：标题，
-message：提示文本，
-autoclose：自动关闭
-duration：停留时长
-buttonClose：是否按钮关闭
+ title：标题，
+ message：提示文本，
+ autoclose：自动关闭
+ duration：停留时长
+ buttonClose：是否按钮关闭
+ onClose:手动关闭会调用该回调
 },
-callback:手动关闭会调用该回调
 -->
 
 
@@ -21,16 +21,22 @@ callback:手动关闭会调用该回调
     appear-active-class="appear-enter-active"
     name="animate">
     <div class="notice"
+      :theme="theme"
       v-if="show">
-      <span class="icon">
-        <i class="iconfont icon-chenggong"
-          v-if="type==='success'"></i>
-        <i class="iconfont icon-jinggao"
-          v-if="type==='warning'"></i>
-        <i class="iconfont icon-cuowu"
-          v-if="type==='error'"></i>
-        <i class="iconfont icon-zhengchang"
-          v-if="type==='info'"></i>
+      <span class="icon"
+        :type="type">
+        <hIcon v-if="type==='success'"
+          name='check'
+          size='16'></hIcon>
+        <hIcon v-if="type==='warning'"
+          name='warning'
+          size='16'></hIcon>
+        <hIcon v-if="type==='error'"
+          name='error'
+          size='16'></hIcon>
+        <hIcon v-if="type==='info'"
+          name='info'
+          size='16'></hIcon>
       </span>
       <div class="message">
         <p class="title"
@@ -42,16 +48,25 @@ callback:手动关闭会调用该回调
       <span @click="handleClose"
         v-if="buttonClose.isShow"
         class="closeButton">
-        <i class="iconfont icon-shanchu"></i>
+        <hIcon name='close'
+          size='14'></hIcon>
       </span>
     </div>
   </transition>
 </template>
 
 <script type="text/ecmascript-6">
+import hIcon from "../icon/index.vue";
 export default {
   name: "HNotice",
+  components: {
+    hIcon,
+  },
   props: {
+    theme: {
+      type: String,
+      default: "plain", // colour
+    },
     //类型
     type: {
       type: String,
@@ -93,11 +108,12 @@ export default {
         return {
           buttonText: "关闭",
           isShow: true,
-          callback: () => {
-            console.warn("default callback");
-          },
         };
       },
+    },
+    // 关闭的回调函数
+    onClose: {
+      type: Function,
     },
   },
   data() {
@@ -134,11 +150,9 @@ export default {
     },
     // 手动关闭
     handleClose() {
-      //只有notice可以手动关闭
       this.close();
-      //只有传入lcallback才能调用
-      if (this.buttonClose.callback) {
-        this.buttonClose.callback("传数据啦");
+      if (this.onClose) {
+        this.onClose();
       } else {
         console.warn("如需使用回调，请传入callback");
       }
@@ -188,45 +202,50 @@ export default {
   text-align: center;
   padding: 10px 10px;
   background: #fff;
-  border-radius: 6px;
+  border-radius: 4px;
+  border: 2px solid #000;
   z-index: 10000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
-  .icon {
-    display: inline-block;
-    width: 20px;
+  &[theme="colour"] {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    .icon {
+      &[type="primary"] {
+        color: $primary-color;
+      }
 
-    .icon-chenggong {
-      color: #52c41a;
-      font-size: 20px;
-    }
+      &[type="warning"] {
+        color: $warn-color;
+      }
 
-    .icon-jinggao {
-      color: #e6a23c;
-      font-size: 20px;
-    }
+      &[type="error"] {
+        color: $error-color;
+      }
 
-    .icon-cuowu {
-      color: #fd6b6d;
-      font-size: 20px;
-    }
+      &[type="success"] {
+        color: $success-color;
+      }
 
-    .icon-zhengchang {
-      color: #909399;
-      font-size: 20px;
+      &[type="info"] {
+        color: $disabled-color;
+      }
     }
   }
 
   .message {
     flex: 1;
-    min-height: 80px;
+    // min-height: 80px;
     max-height: 100px;
     text-align: left;
     padding: 0 10px;
     font-size: 12px;
     display: flex;
     flex-direction: column;
-
+    .title {
+      font-size: 14px;
+      font-weight: bold;
+      line-height: 20px;
+    }
     .content {
       flex: 1;
       position: relative;
@@ -235,7 +254,7 @@ export default {
       overflow: hidden;
     }
 
-    .content[overflow]::after {
+    .content[overflow="true"]::after {
       // 后伪元素
       content: "...";
       position: absolute;
@@ -247,15 +266,12 @@ export default {
       background: -moz-linear-gradient(right, transparent, #fff 55%);
       background: linear-gradient(to right, transparent, #fff 55%);
     }
-
-    .title {
-      font-size: 14px;
-    }
   }
 
   .closeButton {
     display: inline-block;
     width: 20px;
+    cursor: pointer;
   }
 }
 </style>

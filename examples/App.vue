@@ -4,7 +4,7 @@
     <hButton @click='test'
       size='mini'>button</hButton>
 
-    <hIcon name="info"
+    <hIcon name="add"
       size="32"></hIcon>
     <h-table :data="tableData"
       algin="right">
@@ -20,6 +20,10 @@
         </h-table-column>
       </template>
     </h-table>
+    <hPagination background
+      :total="1000"
+      :page-size="20"
+      :page-count="11"></hPagination>
   </div>
 </template>
 
@@ -29,6 +33,7 @@ import hIcon from "../packages/icon/index.vue";
 import hTable from "../packages/table";
 import hTableColumn from "../packages/table-column";
 import hPopMessage from "../packages/popmessage";
+import hPagination from "../packages/pagination";
 export default {
   name: "App",
   components: {
@@ -37,6 +42,7 @@ export default {
     hTable,
     hTableColumn,
     hPopMessage,
+    hPagination,
   },
   data() {
     return {
@@ -71,7 +77,26 @@ export default {
     };
   },
   methods: {
-    test() {},
+    test() {
+      this.$hMessage({
+        type: "success",
+        theme: "plain",
+        message: "这是一个警告",
+        duration: 30000,
+      });
+      this.$hNotice({
+        type: "warning",
+        theme: "plain",
+        message:
+          "和开发者交流问题的细节关注并接收问题和回答的更新提醒参与内容的编辑和改进，让解决方法与时俱进",
+        duration: 3000,
+        autoclose: false,
+        buttonClose: {
+          buttonText: "关闭",
+          isShow: true,
+        },
+      });
+    },
   },
 };
 </script>

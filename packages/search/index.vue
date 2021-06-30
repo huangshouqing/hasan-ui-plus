@@ -97,6 +97,7 @@ body {
     color: black;
     font-weight: bold;
     font-size: 20px;
+    top: 2px;
     pointer-events: all;
   }
   &:hover {

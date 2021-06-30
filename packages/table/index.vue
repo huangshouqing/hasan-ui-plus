@@ -86,6 +86,7 @@ export default {
     }
   }
   .table__body-wrapper {
+    width: 100%;
     .tr-wrapper:hover {
       background: $hover-color;
     }
