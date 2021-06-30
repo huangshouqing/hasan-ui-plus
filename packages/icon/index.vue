@@ -29,5 +29,6 @@ export default {
 .icon {
   user-select: none;
   vertical-align: middle;
+  cursor: pointer;
 }
 </style>

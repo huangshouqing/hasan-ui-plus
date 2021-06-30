@@ -1,4 +1,4 @@
-const packVersion = '0.0.1-alpha.6'
+const packVersion = '0.0.1-alpha.7'
 const r = ['color: #fff', 'border-top-left-radius:3px', 'border-bottom-left-radius:3px', 'background-color: #564b4f', 'padding: 5px'].join(';');
 const i = ['color: #fff', 'border-top-right-radius:3px', 'border-bottom-right-radius:3px', 'background-color: #4fc08d', 'padding: 5px'].join(';');
 console.log('%chasan-ui-plus-Version %c'.concat(packVersion), r, i);
